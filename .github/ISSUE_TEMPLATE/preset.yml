@@ -1,0 +1,12 @@
+name: New preset
+description: Propose an industry preset
+labels: [preset]
+body:
+  - type: input
+    id: industry
+    attributes: { label: Industry }
+    validations: { required: true }
+  - type: textarea
+    id: details
+    attributes: { label: Mode, density, palette mood, type, patterns, compliance }
+    validations: { required: true }

@@ -1,0 +1,32 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm test
+      - run: npm run lint
+      - name: Manifests are valid JSON with matching versions
+        run: |
+          node -e '
+            const v = ["package.json", ".claude-plugin/plugin.json", "gemini-extension.json"].map(f => require("./" + f).version);
+            require("./.claude-plugin/marketplace.json");
+            if (new Set(v).size !== 1) { console.error("Version mismatch:", v); process.exit(1); }
+          '
+      - name: SKILL.md frontmatter
+        run: |
+          node -e '
+            const s = require("fs").readFileSync("skills/designed/SKILL.md", "utf8");
+            const fm = s.match(/^---\n([\s\S]*?)\n---/)[1];
+            const desc = (fm.match(/^description: (.*)$/m) || [])[1] || "";
+            if (!/^name: designed$/m.test(fm)) throw "name missing";
+            if (!desc || desc.length > 1024) throw "description missing or over 1024 chars: " + desc.length;
+          '
+      - name: Package contents
+        run: npm pack --dry-run

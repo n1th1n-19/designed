@@ -1,0 +1,14 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "designed",
+  "description": "The designed UI/UX skill: one design system from Apple, Google, Samsung, Microsoft, IBM, Shopify, Atlassian and the best of modern web.",
+  "owner": { "name": "n1th1n-19", "url": "https://github.com/n1th1n-19" },
+  "plugins": [
+    {
+      "name": "designed",
+      "description": "Plan and build UI/UX on any platform with one design system that combines Apple HIG, Material 3, One UI, Fluent 2, Carbon, Polaris, Atlassian and the Linear/Vercel/Stripe style. Discovery first, full brand kit, optional demo, and a designed.md every AI agent follows.",
+      "source": "./",
+      "category": "design"
+    }
+  ]
+}

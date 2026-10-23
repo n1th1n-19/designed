@@ -1,0 +1,12 @@
+name: New flavor
+description: Propose a design system flavor
+labels: [flavor]
+body:
+  - type: input
+    id: name
+    attributes: { label: Design system }
+    validations: { required: true }
+  - type: textarea
+    id: why
+    attributes: { label: Signature moves and when to use it }
+    validations: { required: true }

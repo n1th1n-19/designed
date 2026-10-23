@@ -1,0 +1,15 @@
+name: Bug
+description: The skill or installer did something wrong
+labels: [bug]
+body:
+  - type: input
+    id: agent
+    attributes: { label: Agent and version, placeholder: "Claude Code 2.x, Codex, Gemini CLI, Cursor" }
+    validations: { required: true }
+  - type: input
+    id: install
+    attributes: { label: How you installed, placeholder: "npx designed-skill, plugin marketplace, curl" }
+  - type: textarea
+    id: what
+    attributes: { label: What happened, description: "Prompt you used, what you expected, what you got" }
+    validations: { required: true }

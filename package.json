@@ -1,0 +1,18 @@
+{
+  "name": "designed-skill",
+  "version": "0.1.0",
+  "description": "Plan and build UI/UX on any platform with one design system that combines Apple HIG, Material 3, One UI, Fluent 2, Carbon, Polaris, Atlassian and the Linear/Vercel/Stripe style. Discovery first, full brand kit, optional demo, and a designed.md every AI agent follows.",
+  "license": "MIT",
+  "author": "n1th1n-19",
+  "homepage": "https://github.com/n1th1n-19/designed#readme",
+  "repository": { "type": "git", "url": "git+https://github.com/n1th1n-19/designed.git" },
+  "bugs": { "url": "https://github.com/n1th1n-19/designed/issues" },
+  "keywords": ["agent-skills", "claude-code", "claude-skill", "codex", "gemini-cli", "cursor", "design-system", "ui-ux", "design-tokens", "brand", "skill"],
+  "bin": { "designed-skill": "bin/install.js" },
+  "files": ["bin/", "skills/", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "test": "node skills/designed/scripts/test.mjs && node test/install.test.mjs",
+    "lint": "node test/lint.mjs"
+  }
+}
