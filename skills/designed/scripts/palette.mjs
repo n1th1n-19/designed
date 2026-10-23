@@ -4,7 +4,8 @@
 //   node palette.mjs --primary 262:0.15 [--secondary 240:0.06] [--accent 30:0.18] [--neutral 262:0.012]
 //                    [--success 150:0.14] [--warning 75:0.15] [--error 27:0.18] [--info 240:0.12]
 //                    [--out tokens.json]
-// Each value is hue:peakChroma in OKLCH. With --out, merges into an existing file (keeps other keys).
+// Each value is hue:peakChroma in OKLCH. With --out, merges into an existing file: other keys, custom roles
+// and custom contrast pairs are kept; generated colors and roles are replaced.
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { check } from "./contrast.mjs";
@@ -89,6 +90,15 @@ export function fixRoles(tokens, log = () => {}) {
   }
 }
 
+export function merge(base, built) {
+  const theme = { ...base.theme };
+  for (const [t, roles] of Object.entries(built.theme)) theme[t] = { ...base.theme?.[t], ...roles };
+  const key = (p) => p.slice(0, 2).join("|");
+  const seen = new Set(built.contrast.map(key));
+  const contrast = [...built.contrast, ...(base.contrast ?? []).filter((p) => !seen.has(key(p)))];
+  return { ...base, ...built, color: { ...base.color, ...built.color }, theme, contrast };
+}
+
 const parse = (v) => v.split(":").map(Number);
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
@@ -115,7 +125,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     console.log(JSON.stringify(built, null, 2));
   } else {
     const base = existsSync(out) ? JSON.parse(readFileSync(out, "utf8")) : {};
-    writeFileSync(out, JSON.stringify({ ...base, ...built, color: { ...base.color, ...built.color } }, null, 2) + "\n");
-    console.log(`Wrote colors, themes and contrast pairs to ${out}. Next: node contrast.mjs ${out}`);
+    writeFileSync(out, JSON.stringify(merge(base, built), null, 2) + "\n");
+    const here = fileURLToPath(new URL(".", import.meta.url));
+    console.log(`Wrote colors, themes and contrast pairs to ${out}. Next: node ${here}contrast.mjs ${out}`);
   }
 }

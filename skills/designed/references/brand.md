@@ -44,7 +44,7 @@ OKLCH keeps perceived lightness even across hues, so the same step number means 
 
 `scripts/palette.mjs` does this for you, including sRGB gamut fitting and the role mapping below: `node <skill>/scripts/palette.mjs --primary 262:0.15 --accent 30:0.18 --out tokens.json`.
 
-Chroma for a step = `C x factor`. Typical peak `C`: 0.10 to 0.16 for primary, 0.20 for a loud accent, 0.01 to 0.03 for neutrals. Yellow and cyan hues shift: raise L by about 0.03 for 400 and 500 (not 600, which carries text contrast) so they do not look muddy. Always give hex too (convert and clamp to sRGB gamut) for tools that need it.
+Chroma for a step = `C x factor`. Typical peak `C`: 0.10 to 0.16 for primary, 0.20 for a loud accent, 0.01 to 0.03 for neutrals. Yellow through cyan hues (70 to 200) shift: raise L by about 0.03 for 400 and 500 (not 600, which carries text contrast) so they do not look muddy. Always give hex too (convert and clamp to sRGB gamut) for tools that need it.
 
 ### The full palette
 
@@ -66,21 +66,24 @@ Code never uses `primary-600` directly. It uses roles, mapped per theme:
 | Role | Light | Dark |
 |---|---|---|
 | `bg` | neutral-50 | neutral-950 |
-| `surface` | white or neutral-50 | neutral-900 |
+| `surface` | neutral-50 | neutral-900 |
 | `surface-raised` | white | neutral-800 |
 | `surface-sunken` | neutral-100 | neutral-950 |
 | `border` | neutral-200 | neutral-800 |
 | `border-strong` | neutral-300 | neutral-700 |
 | `text` | neutral-900 | neutral-50 |
 | `text-muted` | neutral-600 | neutral-400 |
-| `text-subtle` | neutral-500 | neutral-500 |
 | `primary` | primary-600 | primary-400 |
 | `on-primary` | white | primary-950 |
 | `primary-container` | primary-100 | primary-900 |
 | `on-primary-container` | primary-900 | primary-100 |
+| `accent` | accent-600 | accent-400 |
 | `focus-ring` | primary-500 | primary-400 |
-| `success`, `warning`, `error`, `info` | 600 step | 400 step |
-| `*-container` | 100 step | 900 step |
+| `success`, `warning` | 700 step | 400 step |
+| `error`, `info` | 600 step | 400 step |
+| `on-status` (text on any status color) | white | neutral-950 |
+
+`palette.mjs` writes exactly these roles. If a pair fails contrast, it moves the non-surface role one step (darker in light, lighter in dark) until it passes, so check the final mapping in tokens.json. Add extra roles (for example `text-subtle`, `success-container`) by hand under `theme.light` and `theme.dark`, plus a contrast pair for each; re-running the script keeps them.
 
 Dark mode is not inverted light mode: lower chroma slightly, raise surfaces with lightness not shadow, avoid pure black unless OLED battery is a stated goal.
 

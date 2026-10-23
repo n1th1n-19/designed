@@ -5,12 +5,12 @@
 ## Checking if a companion is installed
 
 1. Look in the session's available skill list (plugin skills appear as `plugin:skill`).
-2. Otherwise check the agent's skills folders: `~/.claude/skills/`, `./.claude/skills/`, `~/.agents/skills/`, `~/.codex/skills/`, `~/.gemini/extensions/`.
+2. Otherwise check the agent's skills folders (the same ones the `designed-skill` installer uses): `~/.claude/skills/`, `./.claude/skills/`, `~/.codex/skills/`, `~/.cursor/skills/`, `~/.gemini/skills/`, `~/.gemini/extensions/`, `~/.agents/skills/`.
 3. Connectors (Canva, Figma, SpriteShip) count as installed when their tools are available in the session.
 
 ## Asking to download
 
-Ask once per missing skill per session, and batch them when several are missing at the start:
+Ask once per session, at the start of step 1, only about companions whose use matches this project (its stack, charts, game, Figma, illustrations). Batch them in one question:
 
 > This step works better with `anatomy` and `dataviz`, which are not installed. Do you want to download them?
 
@@ -22,14 +22,14 @@ On yes, run the install command from the table (Claude Code plugin commands are 
 |---|---|---|
 | `frontend-design` | `/plugin install frontend-design@claude-plugins-official` | Claude Code plugin |
 | `superpowers` (brainstorming) | `/plugin install superpowers@claude-plugins-official` | Claude Code plugin |
-| `figma` skills | `/plugin install figma@claude-plugins-official` | Also needs the Figma connector |
+| `figma` skills (generate-design, generate-library, design-to-code, swiftui, implement-motion, shaders) | `/plugin install figma@claude-plugins-official` | Also needs the Figma connector |
 | `expo` skills | `/plugin install expo@claude-plugins-official` | |
 | `vercel` skills (shadcn, nextjs, react-best-practices, verification) | `/plugin install vercel@claude-plugins-official` | |
 | `chrome-devtools-mcp` (a11y-debugging, debug-optimize-lcp) | `/plugin install chrome-devtools-mcp@claude-plugins-official` | |
 | `cloudflare` (web-perf) | `/plugin install cloudflare@claude-plugins-official` | |
 | `playground` | `/plugin install playground@claude-plugins-official` | |
 | `playwright` | `/plugin install playwright@claude-plugins-official` | Browser screenshots |
-| `code-review`, `code-simplifier` | `/plugin install code-review@claude-plugins-official` | |
+| `code-review`, `simplify`, `run` | Built into Claude Code | Other agents: skip |
 | `anatomy` | `npx skills add wheresryan22/anatomy` | |
 | `hairline-create`, `hairline-adopt` | `npx skills add lucasmarkes/hairline` | Uses the `@lucasmarkes/hairline` engine |
 | `impeccable` | `npx skills add pbakaus/impeccable` | |

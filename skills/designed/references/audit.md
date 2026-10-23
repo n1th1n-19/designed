@@ -53,6 +53,12 @@ AI-look tells present
 Proposed tokens: (summary table)
 ```
 
-Show the report. Ask: "Do you want me to write designed.md and tokens.json from this?" Only write on yes. Mark the designed.md changelog entry as "Created from audit". Then offer a migration: replace raw values in code with tokens, file by file, starting with the most used components.
+## 5. Confirm the brief
 
-After writing, continue from step 4 of the main flow (offer a demo).
+Audit replaces most of discovery, not all of it. Draft the brief from the code (template in [discovery](discovery.md#4-brief-template)), mark the fields you could not infer, and ask only those. Get a yes on the brief.
+
+## 6. Write and continue
+
+Show the report and brief. Ask: "Do you want me to write designed.md and tokens.json from this?" Only write on yes. Mark the designed.md changelog entry as "Created from audit". Then offer a migration: replace raw values in code with tokens, file by file, starting with the most used components.
+
+After writing, continue from step 4 of the main flow (offer a demo). In step 5, update this designed.md with any demo changes and add the pointer; do not recreate it.

@@ -1,6 +1,6 @@
 # Components
 
-Every component uses semantic tokens only. Every interactive component has these states: default, hover (pointer), focus-visible, pressed, disabled, and where relevant selected, loading, error. Sizes: sm, md (default), lg.
+Every component uses semantic tokens only. Every interactive component has these states: default, hover (pointer), focus-visible, pressed, disabled, and where relevant selected, loading, error. Sizes: sm, md (default), lg. Values here are the unified default; a flavor's values override them.
 
 Minimum hit area 44pt / 48dp on touch, 32px on dense pointer UI. Visual size may be smaller with padding making up the hit area.
 

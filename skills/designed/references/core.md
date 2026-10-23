@@ -48,7 +48,31 @@ Stored in `tokens.json` using the W3C Design Tokens format:
 }
 ```
 
-The `contrast` array lists the foreground/background role pairs the contrast script checks in every theme. Add every pair the UI actually uses.
+The `contrast` array lists the foreground/background role pairs the contrast script checks in every theme. Add every pair the UI actually uses. An optional third value sets the minimum ratio (default 4.5), e.g. `["focus-ring", "bg", 3]`.
+
+### Token shapes
+
+Use exactly these shapes so the scripts can read them. `palette.mjs` writes `color`, `theme` and `contrast`; add the rest by hand.
+
+```json
+{
+  "font": {
+    "display": { "$type": "fontFamily", "$value": ["Fraunces", "Georgia", "serif"] },
+    "body":    { "$type": "fontFamily", "$value": ["Inter", "system-ui", "sans-serif"] }
+  },
+  "type": {
+    "body": { "$type": "typography", "$value": { "fontFamily": "{font.body}", "fontSize": "16px", "lineHeight": 1.5, "fontWeight": 400 } }
+  },
+  "space":  { "4": { "$type": "dimension", "$value": "16px" } },
+  "radius": { "md": { "$type": "dimension", "$value": "12px" } },
+  "motion": {
+    "duration": { "base": { "$type": "duration", "$value": "250ms" } },
+    "easing":   { "standard": { "$type": "cubicBezier", "$value": [0.2, 0, 0, 1] } }
+  }
+}
+```
+
+Dimensions may also be written as `{ "value": 16, "unit": "px" }` (newer spec) and font families as one comma separated string; the scripts accept both. Values in `rem` count as 16px per rem.
 
 ## Color
 

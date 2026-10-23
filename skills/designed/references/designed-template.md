@@ -43,13 +43,20 @@ Roles
 |---|---|---|---|
 | bg | | | Page background |
 | surface | | | Cards, panels |
+| surface-raised | | | Popovers, raised cards |
+| surface-sunken | | | Wells, skeletons |
+| border | | | Dividers, inputs |
+| border-strong | | | Input outlines, emphasis |
 | text | | | Body text |
 | text-muted | | | Secondary text |
 | primary | | | Main actions, links |
 | on-primary | | | Text on primary |
-| border | | | Dividers, inputs |
+| primary-container | | | Tonal buttons, selected |
+| on-primary-container | | | Text on primary-container |
+| accent | | | Signature detail only |
 | focus-ring | | | Focus indicator |
 | success / warning / error / info | | | Status |
+| on-status | | | Text on status colors |
 
 Rules: <e.g. accent only on the streak counter; status always color plus text>
 
@@ -122,7 +129,7 @@ Grid: <columns, gutters, margins, max widths>
 
 ## 8. Accessibility
 
-Target: WCAG 2.2 AA (AAA for <areas>). Contrast checked with scripts/contrast.mjs on <date>. Text scaling, reduced motion, keyboard, screen reader notes.
+Target: WCAG 2.2 AA (AAA for <areas>). Contrast checked with the designed skill's contrast.mjs on <date>. Text scaling, reduced motion, keyboard, screen reader notes.
 
 ## 9. Internationalisation
 
@@ -142,10 +149,12 @@ Languages: <list>. RTL: <yes/no>. Expansion allowance, font fallbacks, formattin
 
 ## Pointer snippet for agent instruction files
 
-Append to `CLAUDE.md` (create if missing), and to `AGENTS.md`, `GEMINI.md`, `.cursorrules` if they exist. Skip any file that already contains `designed.md`.
+Append to `CLAUDE.md` (create if missing), and to `AGENTS.md`, `GEMINI.md` and `.cursor/rules/designed.mdc` if they exist or the project uses that agent. Skip any file that already has a `## Design system` heading.
 
 ```markdown
 ## Design system
 
 All UI work follows `designed.md` (human-readable) and `tokens.json` (machine-readable) in the project root. Read `designed.md` before creating or changing any screen, component, style or copy. Use only its tokens, fonts and patterns. If something new is needed, update `designed.md` and `tokens.json` first. No emojis or em dashes in UI or copy.
+
+Use the `designed` skill (`/designed`) for any UI work. Run `/designed sync` after design changes. If the skill is not installed: `npx skills add n1th1n-19/designed`.
 ```

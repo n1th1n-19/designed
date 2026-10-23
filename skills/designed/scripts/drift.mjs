@@ -23,7 +23,7 @@ export function walk(dir, out = []) {
     const p = join(dir, name);
     const st = statSync(p);
     if (st.isDirectory()) walk(p, out);
-    else if (EXTS.has(extname(name)) && !/tokens\.json$|design-demo\.html$/.test(name)) out.push(p);
+    else if (EXTS.has(extname(name)) && !/design-demo\.html$/.test(name)) out.push(p);
   }
   return out;
 }
@@ -46,11 +46,16 @@ export function allowedFrom(tokens) {
         const type = node.$type;
         if (typeof v === "string" && v.startsWith("{")) return; // alias, the target is collected anyway
         if (type === "color" || (typeof v === "string" && parseColor(v))) colors.add(normColor(String(v)));
-        if (type === "fontFamily") [].concat(v).forEach((f) => fonts.add(String(f).replace(/["']/g, "").trim().toLowerCase()));
-        if (type === "dimension" || (typeof v === "string" && /^\d/.test(v))) {
-          const m = String(v).match(/^(\d+(?:\.\d+)?)(px|rem)?$/);
+        // Font families as an array or one comma separated string.
+        if (type === "fontFamily") [].concat(v).flatMap((f) => String(f).split(",")).forEach((f) => fonts.add(f.replace(/["']/g, "").trim().toLowerCase()));
+        // Dimensions as "16px", "1rem", 16, or { value, unit }. Typography composites contribute their fontSize.
+        const addDim = (d) => {
+          if (d && typeof d === "object" && "value" in d) d = `${d.value}${d.unit ?? "px"}`;
+          const m = String(d).match(/^(\d+(?:\.\d+)?)(px|rem)?$/);
           if (m) px.add(m[2] === "rem" ? String(parseFloat(m[1]) * 16) : m[1]);
-        }
+        };
+        if (type === "dimension" || (typeof v === "string" && /^\d/.test(v))) addDim(v);
+        if (type === "typography" && v && typeof v === "object" && v.fontSize) addDim(v.fontSize);
         if (node.$extensions) visit(node.$extensions);
         return;
       }

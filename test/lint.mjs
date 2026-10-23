@@ -3,7 +3,7 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const SKIP = new Set(["node_modules", ".git", ".remember"]);
-const BAD = /[\u2014\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}]/u;
+const BAD = /[\u2014\u{1F000}-\u{1FAFF}\u{2300}-\u{23FF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}]/u;
 const files = [];
 const walk = (d) => readdirSync(d).forEach((n) => {
   if (SKIP.has(n)) return;
