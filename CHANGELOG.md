@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 (2026-10-23)
+
+- Releases publish through npm Trusted Publishing (OIDC) instead of a token
+- README: install and directory notes corrected
+
 ## 0.1.0 (2026-10-23)
 
 First release.
