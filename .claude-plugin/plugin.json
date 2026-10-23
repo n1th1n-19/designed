@@ -1,6 +1,6 @@
 {
   "name": "designed",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Plan and build UI/UX on any platform with one design system that combines Apple HIG, Material 3, One UI, Fluent 2, Carbon, Polaris, Atlassian and the Linear/Vercel/Stripe style. Discovery first, full brand kit, optional demo, and a designed.md every AI agent follows.",
   "author": { "name": "n1th1n-19", "url": "https://github.com/n1th1n-19" },
   "homepage": "https://github.com/n1th1n-19/designed",

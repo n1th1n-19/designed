@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2 (2026-10-23)
+
+- Also published to GitHub Packages as @n1th1n-19/designed-skill
+- README badges for npm, CI and license
+
 ## 0.1.1 (2026-10-23)
 
 - Releases publish through npm Trusted Publishing (OIDC) instead of a token

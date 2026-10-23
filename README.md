@@ -1,5 +1,7 @@
 # designed
 
+[![npm](https://img.shields.io/npm/v/designed-skill)](https://www.npmjs.com/package/designed-skill) [![CI](https://github.com/n1th1n-19/designed/actions/workflows/ci.yml/badge.svg)](https://github.com/n1th1n-19/designed/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 An agent skill for UI/UX. It plans and builds interfaces for any platform with one design system drawn from Apple HIG, Material 3, Samsung One UI, Fluent 2, IBM Carbon, Shopify Polaris, Atlassian, and the Linear, Vercel and Stripe style.
 
 It works with Claude Code, Codex, Cursor, Gemini CLI and any agent that reads Agent Skills.
