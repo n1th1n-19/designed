@@ -11,9 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20, registry-url: "https://registry.npmjs.org" }
+        with: { node-version: 24, registry-url: "https://registry.npmjs.org" }
+      # Trusted Publishing (OIDC) needs npm 11.5.1 or newer
+      - run: npm install -g npm@latest && npm --version
       - run: npm test
       - run: npm run lint
+      # Uses Trusted Publishing when it is set up on npmjs.com, otherwise falls back to the NPM_TOKEN secret
       - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
