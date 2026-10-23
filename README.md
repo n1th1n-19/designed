@@ -25,7 +25,15 @@ Rules it holds to: discovery before design, nothing that looks machine generated
 
 ## Install
 
-Pick one.
+### Recommended
+
+```bash
+npx designed-skill
+```
+
+It finds every AI agent on your machine (Claude Code, Codex, Cursor, Gemini CLI) and installs the skill for each one. The same tool updates and removes it later. Needs Node 18 or newer. Then start a new agent session and run `/designed`.
+
+### Other ways
 
 ```bash
 # Any agent, via the Agent Skills CLI
@@ -65,6 +73,39 @@ npx designed-skill uninstall     remove it
 ```
 
 Manual: copy `skills/designed` into your agent's skills folder.
+
+## Update
+
+```bash
+npx designed-skill@latest update
+```
+
+## Uninstall
+
+Use the line that matches how you installed it.
+
+| Installed with | Remove with |
+|---|---|
+| `npx`, `bunx`, `pnpm dlx`, `yarn dlx` or the curl one-liner | `npx designed-skill uninstall` |
+| Agent Skills CLI | `npx skills remove designed` |
+| Claude Code plugin | `/plugin uninstall designed@designed`, then `/plugin marketplace remove designed` |
+| Gemini CLI extension | `gemini extensions uninstall designed` |
+| Manual copy | Delete the `designed` folder from your agent's skills folder |
+
+`npx designed-skill uninstall` removes the skill from every agent it finds. Add `--claude`, `--codex`, `--cursor`, `--gemini`, `--agents`, `--project` or `--dir <path>` to remove it from one place only. It only deletes folders that contain this skill, never anything else with the same name.
+
+Skills folders, for a manual removal:
+
+```
+~/.claude/skills/designed      Claude Code
+./.claude/skills/designed      Claude Code, project install
+~/.codex/skills/designed       Codex
+~/.cursor/skills/designed      Cursor
+~/.gemini/skills/designed      Gemini CLI
+~/.agents/skills/designed      Agent Skills CLI
+```
+
+Removing the skill does not touch `designed.md` or `tokens.json` in your projects. Delete those yourself if you no longer want them.
 
 ## Use
 
