@@ -99,7 +99,7 @@ Each folder in [examples](examples) has a `designed.md`, `tokens.json` and `desi
 
 New flavors, presets and companions are welcome. See [CONTRIBUTING](CONTRIBUTING.md).
 
-Listing it elsewhere: the repo is ready for [skills.sh](https://skills.sh) and Claude Code community marketplaces. Submit the repo URL `https://github.com/n1th1n-19/designed`.
+Directories: [skills.sh](https://skills.sh) lists it automatically from `npx skills add` installs. It is also on [npm](https://www.npmjs.com/package/designed-skill).
 
 ## Note on sources
 
