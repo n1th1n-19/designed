@@ -173,6 +173,8 @@ Elevation tokens: `0` flat, `1` raised card, `2` dropdown and popover, `3` sheet
 | `base` | 250 to 300ms | Panels, menus, most transitions |
 | `slow` | 400 to 500ms | Large surfaces, page transitions |
 
+Pick patterns (image sequence, parallax, shared element, micro-interactions and more) from [motion](motion.md).
+
 Easings: `standard` cubic-bezier(0.2, 0, 0, 1), `enter` cubic-bezier(0, 0, 0, 1), `exit` cubic-bezier(0.3, 0, 1, 1). On Apple platforms prefer springs (response 0.35 to 0.5, damping 0.8 to 1). Respect reduced motion: replace movement with fades or nothing.
 
 ## 6. Iconography

@@ -1,6 +1,6 @@
 ---
 name: designed
-description: Plans and builds UI/UX and design systems for web, iOS, Android and desktop apps. Use when the user asks to design, redesign, style, theme or polish any UI, screen, page, landing page, website, app or component; to choose a color palette, fonts, icons, logo or app icon direction; to set up design tokens, dark mode, or a Tailwind or CSS theme; to fix visual consistency or contrast; when they run /designed (brand, demo, sync, audit); and always when the project has a designed.md file and any UI, style or copy work is requested. Combines Apple HIG, Material 3, One UI, Fluent 2, Carbon, Polaris, Atlassian and the Linear/Vercel/Stripe style with switchable flavors, starts with product discovery, and records every decision in designed.md.
+description: Plans and builds UI/UX and design systems for web, iOS, Android and desktop apps. Use when the user asks to design, redesign, style, theme or polish any UI, screen, page, landing page, website, app or component; to choose a color palette, fonts, icons, logo or app icon direction; to set up design tokens, dark mode, or a Tailwind or CSS theme; to add animation, micro-interactions, page transitions, parallax, scroll effects or image sequences; to fix visual consistency or contrast; when they run /designed (brand, demo, sync, audit); and always when the project has a designed.md file and any UI, style or copy work is requested. Combines Apple HIG, Material 3, One UI, Fluent 2, Carbon, Polaris, Atlassian and the Linear/Vercel/Stripe style with switchable flavors, starts with product discovery, and records every decision in designed.md.
 ---
 
 # designed
@@ -41,7 +41,8 @@ Read the first word after `/designed`:
 **3. Brand kit and design plan.** Follow [brand](references/brand.md). Output everything the project needs:
 - Palette: primary, secondary, accent, neutral ramp, success, warning, error, info. Each a tonal scale 50 to 950 in OKLCH with hex, light and dark role mapping.
 - Typography: display, body, mono with reasons, free sources, fallbacks, full type scale.
-- Spacing, radii, borders, elevation, materials, motion, grid, breakpoints.
+- Spacing, radii, borders, elevation, materials, grid, breakpoints.
+- Motion: tokens, a one line motion language, and the animation patterns this product uses, each with its job and reduced motion alternative ([motion](references/motion.md)).
 - Icon set, imagery and illustration direction, logo and app icon direction, voice and tone.
 - Components with states ([components](references/components.md)), navigation, key screens.
 
@@ -51,7 +52,7 @@ Generate the color scales with `node <skill>/scripts/palette.mjs --primary <hue:
 
 **5. Write `designed.md`** in the project root from [the template](references/designed-template.md). If a draft already exists (from `/designed brand` or audit), update it with the final values instead of recreating it. Then add the pointer section from the template to `CLAUDE.md` (create it if missing) and to `AGENTS.md`, `GEMINI.md` and `.cursor/rules/designed.mdc` when those exist or the project uses that agent. Skip any file that already has a `## Design system` heading.
 
-**6. Build.** Generate platform code from tokens.json using [platforms](references/platforms.md). Call companion skills where they fit (table below).
+**6. Build.** Generate platform code from tokens.json using [platforms](references/platforms.md), and animations from [motion](references/motion.md). Call companion skills where they fit (table below).
 
 **7. Review.** Run the checklist below, `node <skill>/scripts/drift.mjs tokens.json <src dir>`, then `impeccable` for critique and polish if installed.
 
@@ -63,6 +64,7 @@ Generate the color scales with `node <skill>/scripts/palette.mjs --primary <hue:
 - User asks for "Apple style", "Material", "Windows" and so on: step 2 flavor, still do discovery first
 - Charts or dashboards: core plus the `dataviz` companion
 - Game: [presets](references/presets.md#game) and the SpriteShip connector for UI packs
+- Animation, scroll effects, image sequences, parallax, page transitions: [motion](references/motion.md)
 - Right-to-left or multiple languages: [patterns](references/patterns.md#rtl-and-i18n)
 
 ## Companion skills
@@ -98,7 +100,7 @@ Generate the color scales with `node <skill>/scripts/palette.mjs --primary <hue:
 - [ ] Contrast script passes, focus states visible, touch targets 44pt / 48dp minimum
 - [ ] Works in light and dark, at 320, 390 and 1440 wide
 - [ ] Dynamic type or browser zoom to 200 percent does not break layout
-- [ ] Reduced motion respected
+- [ ] Reduced motion respected, every animation has a job and holds 60fps on a mid range phone
 - [ ] Empty, loading, error and success states exist for every data view
 - [ ] Real copy, no lorem ipsum, no emojis, no em dashes
 - [ ] None of the AI-look anti-patterns present

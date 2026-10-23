@@ -17,6 +17,8 @@ It works with Claude Code, Codex, Cursor, Gemini CLI and any agent that reads Ag
 5. **Writes `designed.md`.** The project's design record, plus `tokens.json` for code. It adds a pointer to `CLAUDE.md` and `AGENTS.md` so every later session and every agent follows it.
 6. **Builds and reviews.** Platform code from the tokens, a checklist, and a drift check that flags any color, font or spacing value that is not in the system.
 
+It also covers motion: scroll scrubbed image sequences, parallax, scroll driven reveals, view transitions, shared elements, micro-interactions, Lottie and Rive, each with when to use it, code, and a reduced motion alternative.
+
 Rules it holds to: discovery before design, nothing that looks machine generated, no emojis and no em dashes, and `designed.md` as the single source of truth.
 
 ## Install

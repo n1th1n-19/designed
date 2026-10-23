@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Motion reference: scroll scrubbed image sequences, parallax, scroll driven reveals, pinned scrollytelling, view transitions, shared elements, FLIP, micro-interactions, Lottie, Rive, kinetic type, shaders and more, each with job, build recipe and reduced motion alternative
+- Project settings that turn off co-author attribution
+
 ## 0.1.0 (2026-10-23)
 
 First release.

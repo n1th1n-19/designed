@@ -109,6 +109,9 @@ Generated interfaces share tells. Remove them by default unless the brief explic
 | Gradient text on every heading | Overuse | Solid text; gradient text once if it is the signature |
 | Too many badges, pills and "New" labels | Visual noise | Only status that users act on |
 | Testimonials grid with 5 star cards | Template | One strong quote with name and role, or real logos |
+| Every element fades up on scroll | Default scroll library setting | Reveal only a few key sections, static content above the fold |
+| Parallax on every section, floating blobs | Motion as filler | One depth moment with a job, see [motion](motion.md) |
+| Typewriter headlines, bouncing everything | Gimmick | Kinetic type once, consistent easing, no bounce on serious products |
 
 Human-designed signals to add:
 - One signature detail owned by this product (a distinctive number style, a unique empty state, a custom cursor in a creative tool, a recognisable color moment).

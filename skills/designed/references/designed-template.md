@@ -102,7 +102,10 @@ Radii: <sm / md / lg / full and where each is used>
 Borders: <widths and colors>
 Elevation: <depth language, levels 0 to 4>
 Materials: <where blur is allowed>
-Motion: <durations, easings, reduced motion behaviour>
+Motion: <durations, easings, springs, reduced motion behaviour>
+Motion language: <one line, e.g. fast, short distance, no bounce>
+Animation patterns: <pattern: job, where used, reduced alternative> (from the skill's motion reference)
+Banned motion: <patterns not allowed here>
 Breakpoints: <compact / medium / expanded / large>
 Grid: <columns, gutters, margins, max widths>
 

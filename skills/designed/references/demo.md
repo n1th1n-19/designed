@@ -23,7 +23,7 @@ If `artifact-design` is available and the user wants a link to share, publish it
 5. **Components**: buttons (all variants and states: default, hover, focus, pressed, disabled, loading), inputs (empty, filled, focus, error, disabled), select, checkbox, radio, switch, chips, tags, avatar, toast, banner, card, list rows, table sample, empty state, skeleton. States shown side by side, forced with classes, not only on hover.
 6. **Key screens**: one or two of the most important screens from the brief, built with the components and real content, shown in a phone frame and a desktop frame.
 7. **Iconography and imagery**: sample icons from the chosen set as inline SVG (no icon font or CDN), imagery direction notes, logo and app icon direction sketch if useful.
-8. **Motion**: a small interactive example of each motion token (click to play), respecting reduced motion.
+8. **Motion**: a small interactive example of each motion token (click to play), plus a live sample of each animation pattern chosen from [motion](motion.md) (for example a short scroll scrubbed sequence or a shared element transition), respecting reduced motion.
 
 ## Iteration
 
